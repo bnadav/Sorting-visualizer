@@ -1,5 +1,5 @@
 #demo {
- margin: 50px auto;
+ margin: 200px auto;
  width: 800px;
 }
 
@@ -12,4 +12,10 @@
   color: white;
   text-align: center;
   padding-top: 20px;
+}
+
+.fetched {
+  background-color: red;
+  position: absolute;
+  color: blue;
 }

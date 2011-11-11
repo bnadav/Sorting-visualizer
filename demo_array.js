@@ -4,7 +4,10 @@ function DemoArray(size, presentor)
   this.length = size;
   this.presentor = presentor;
   if(!this.presentor) {
-    this.presentor = {set: function(index, value){}};
+    this.presentor = {
+      set: function(index, value){},
+      fetched: function(index, value){}
+    };
   }
 };
 
@@ -17,8 +20,12 @@ DemoArray.prototype = {
   },
 
   fetch: function(index, replacement) {
-     var value = (arguments.length == 2 ? replacement : null);
-     return this.array.splice(index, 1, value);
+     var replacement_value = (arguments.length == 2 ? replacement : null);
+     // insert replacement value in index
+     var fetched_value =  this.array.splice(index, 1, replacement_value);
+     this.presentor.fetched(index, fetched_value);
+     this.presentor.set(index, this.array[index]);
+     return(fetched_value);
   },
 
   at: function(index) {
