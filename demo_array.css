@@ -1,0 +1,15 @@
+#demo {
+ margin: 50px auto;
+ width: 800px;
+}
+
+.element {
+  width: 60px;
+  height: 40px;
+  background-color: rgb(30,70,100);
+  display: inline-block;
+  margin: 5px;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+}
