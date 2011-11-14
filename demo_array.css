@@ -19,3 +19,7 @@
   position: absolute;
   color: blue;
 }
+
+.compared {
+  outline: 3px brown solid;
+}

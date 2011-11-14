@@ -6,11 +6,14 @@
   <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="presentor.js" type="text/javascript" charset="utf-8"></script>
   <script src="demo_array.js" type="text/javascript" charset="utf-8"></script>
+  <script src="insertion_sort.js" type="text/javascript" charset="utf-8"></script>
   <link rel="stylesheet" href="demo_array.css" type="text/css" media="screen" charset="utf-8"/>
  <script type="text/javascript" language="javascript" charset="utf-8">
    $(function() {
        d = new DemoArray(10, Presentor);
        d.randomize(100);
+       insertion_sort(d);
+       Presentor.run();
      })
 </script>
 </head>
