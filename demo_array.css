@@ -23,3 +23,14 @@
 .compared {
   outline: 3px brown solid;
 }
+
+#bus {
+  z-index: 9;
+  height:20px;
+  width: 30px;
+  /*margin: 0 auto;*/
+  position: relative;
+  bottom: 20px;
+  left: 15px;
+  background-color: green;
+}
