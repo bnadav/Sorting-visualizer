@@ -1,15 +1,19 @@
-Presentor = {
+function Presentor(line) {
+  this.line = line;
+  this.queue = new Array();
+}
+
+Presentor.prototype = {
 
   EMPTY_SIGN: "--",
 
-  queue: new Array(),
-
   run: function() {
     var cmd;
-    if(Presentor.queue.length > 0) {
-      cmd = Presentor.queue.shift();
+    var _this = this;
+    if(this.queue.length > 0) {
+      cmd = this.queue.shift();
       cmd.call(this);
-      setTimeout(Presentor.run, 500);
+      setTimeout(function(){_this.run()}, 200);
     }
   },
 
@@ -17,7 +21,7 @@ Presentor = {
          this.queue.push(function() {
          var id = "_" + index;
          var elem = $("#" + id);
-         if (value === null) value = Presentor.EMPTY_SIGN; // Null is no displayed
+         if (value === null) value = this.EMPTY_SIGN; // Null is no displayed
          if(elem.length > 0) {  // Element with the given id found - update it's text
            elem.text(value);
          } else {  // Create the element
@@ -51,8 +55,8 @@ Presentor = {
 
   before_compare: function (index_a, index_b) {
        this.queue.push(function() {
-         var element_a =  Presentor.Util.element(index_a);
-         var element_b =  Presentor.Util.element(index_b);
+         var element_a = this.Util.element(index_a);
+         var element_b = this.Util.element(index_b);
          element_a.add(element_b).addClass("compared");
        });
   },
@@ -65,11 +69,11 @@ Presentor = {
 
   moved: function(from, to, from_value, to_value) {
        this.queue.push(function() {
-         var from_elem = Presentor.Util.element(from);
-         var to_elem = Presentor.Util.element(to);
+         var from_elem = this.Util.element(from);
+         var to_elem = this.Util.element(to);
 
-         from_value = (from_value == null ? Presentor.EMPTY_SIGN : from_value);
-         to_value = (to_value == null ? Presentor.EMPTY_SIGN : to_value);
+         from_value = (from_value == null ? this.EMPTY_SIGN : from_value);
+         to_value = (to_value == null ? this.EMPTY_SIGN : to_value);
 
          from_elem.text(from_value);
          to_elem.text(to_value);

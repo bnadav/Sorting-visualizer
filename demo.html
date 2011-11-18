@@ -10,10 +10,11 @@
   <link rel="stylesheet" href="demo_array.css" type="text/css" media="screen" charset="utf-8"/>
  <script type="text/javascript" language="javascript" charset="utf-8">
    $(function() {
-       d = new DemoArray(10, Presentor);
+       var p = new Presentor(1);
+       var d = new DemoArray(10, p);
        d.randomize(100);
        insertion_sort(d);
-       Presentor.run();
+       p.run();
      })
 </script>
 </head>
