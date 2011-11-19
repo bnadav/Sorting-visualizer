@@ -1,5 +1,6 @@
 function Presentor(line) {
   this.line = line;
+  this.wrapper = jQuery("<div>",{id: "wrapper_" + line, class: "wrapper"}).appendTo("#demo");
   this.queue = new Array();
 }
 
@@ -28,7 +29,7 @@ Presentor.prototype = {
            jQuery('<div/>', {
              id: id,
              text: value
-           }).addClass("element").appendTo('#demo');
+           }).addClass("element").appendTo(this.wrapper);
          }
          });
        },
