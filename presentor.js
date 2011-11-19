@@ -19,7 +19,7 @@ Presentor.prototype = {
 
   set: function(index, value) {
          this.queue.push(function() {
-         var id = "_" + index;
+         var id = "_" + this.line + "_" + index;
          var elem = $("#" + id);
          if (value === null) value = this.EMPTY_SIGN; // Null is no displayed
          if(elem.length > 0) {  // Element with the given id found - update it's text
@@ -35,7 +35,7 @@ Presentor.prototype = {
 
   fetched: function(index, value) {
        this.queue.push(function() {
-         var position = $("#_" + index).position();
+         var position = $("#_" + this.line + "_" + index).position();
          jQuery("<div/>", {
            id: "_fetched",
            text: value + ""
@@ -55,8 +55,8 @@ Presentor.prototype = {
 
   before_compare: function (index_a, index_b) {
        this.queue.push(function() {
-         var element_a = this.Util.element(index_a);
-         var element_b = this.Util.element(index_b);
+         var element_a = this.Util.element(this.line, index_a);
+         var element_b = this.Util.element(this.line, index_b);
          element_a.add(element_b).addClass("compared");
        });
   },
@@ -69,8 +69,8 @@ Presentor.prototype = {
 
   moved: function(from, to, from_value, to_value) {
        this.queue.push(function() {
-         var from_elem = this.Util.element(from);
-         var to_elem = this.Util.element(to);
+         var from_elem = this.Util.element(this.line, from);
+         var to_elem = this.Util.element(this.line, to);
 
          from_value = (from_value == null ? this.EMPTY_SIGN : from_value);
          to_value = (to_value == null ? this.EMPTY_SIGN : to_value);
@@ -82,8 +82,8 @@ Presentor.prototype = {
 
   // Utility
   Util: {
-    element: function(index) {
-        return(index < 0 ? $("#_fetched") : $("#_" + index));
+    element: function(line, index) {
+        return(index < 0 ? $("#_fetched") : $("#_" + line + "_" + index));
     }
   }
 
