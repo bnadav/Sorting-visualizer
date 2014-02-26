@@ -5,6 +5,11 @@
 #demo {
     margin: 180px auto;
     height: 350px;
+    padding: 10px;
+}
+
+#wrapper_1 {
+    height: 350px;
 }
 
 #header {
