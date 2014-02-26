@@ -11,33 +11,44 @@
         <link rel="stylesheet" href="demo_array.css" type="text/css" media="screen" charset="utf-8"/>
         <script type="text/javascript" language="javascript" charset="utf-8">
             $(function() {
+                    var p = new Presentor(1);
                     var _this = this;
                     $("select").change(function() {
                         var f;
-                        var p = new Presentor(1);
-                        var d = new DemoArray(30, p);
+                        var d = new DemoArray(30, p.clear());
                         d.randomize(300);
-                        if(this.value == "insertion_sort") {
-                           f = insertion_sort;
-                        } else {
-                           f = merge_sort;
+                        switch (this.value)
+                        {
+                          case "insertion_sort":
+                            f = insertion_sort;
+                             break;
+                          case "merge_sort":
+                            f = merge_sort;
+                            break;
+                          default:
+                            f = undefined;
                         }
-                        f.call(_this, d);
-                        p.run();
-                        })
+
+                        $("select").val("Select Sort");
+                        if(f) {
+                            f.call(_this, d)
+                            p.run();
+                        }})
                     })
                 </script>
             </head>
 
             <body>
-                <div id="header"> </div>
-                <div id="demo"> </div>
-                <div id="selector">
+                <div id="header">
                     <select>
-                        <option value="Select Sort">Select Sort</option>
+                        <option value="Select Sort" selected>Select Sort</option>
                         <option value="insertion_sort">Insertion Sort</option>
                         <option value="merge_sort">Merge Sort</option>
                     </select>
+                    <span id="title"> Sort Type </span>
+                </div>
+                <div id="demo"> </div>
+                <div id="selector">
                 </div>
             </body>
 

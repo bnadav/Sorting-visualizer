@@ -1,6 +1,6 @@
 function merge_sort(demo_arr)
 {
-    $("#header").html("Merge Sort");
+    $("#title").html("Merge Sort");
     do_sort(demo_arr);
 
 

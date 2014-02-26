@@ -18,6 +18,11 @@ Presentor.prototype = {
     }
   },
 
+  clear: function() {
+     this.queue = new Array();
+     return(this);
+  },
+
   set: function(index, value) {
          this.queue.push(function() {
          var id = "_" + this.line + "_" + index;
@@ -25,13 +30,17 @@ Presentor.prototype = {
          if (value === null) value = this.EMPTY_SIGN; // Null is no displayed
          if(elem.length > 0) {  // Element with the given id found - update it's text
            elem.css({'height': value});
+           $("span", $(elem)).text(value);
            //elem.text(value);
          } else {  // Create the element
+           jQuery('<span/>', {
+               text: value
+           }).appendTo(
            jQuery('<div/>', {
              id: id,
              height: value,
              //text: value
-           }).addClass("element").appendTo(this.wrapper);
+           }).addClass("element").appendTo(this.wrapper));
          }
          });
        },

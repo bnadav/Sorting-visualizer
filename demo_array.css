@@ -3,24 +3,42 @@
 }
 
 #demo {
-    margin: 180px auto;
+    margin: 180px auto 0;
     height: 350px;
-    padding: 10px;
+    min-height: 350px;
+    position: relative;
+    /*padding: 10px;*/
 }
 
-#wrapper_1 {
+.wrapper {
     height: 350px;
+    min-height: 350px;
+    padding: 10px 15px;
+    /*border: 1px solid;*/
+    /*border-radius: 4px;*/
+    transform: rotate(180deg);
 }
+
+
+/*#wrapper_1 {*/
+    /*height: 350px;*/
+/*}*/
 
 #header {
     text-align: center;
     font-size: 22px;
-    margin: 20px auto;
+    margin: 25px auto;
+    position: relative;
+    background-color: rgb(167, 211, 255);
+    border-radius: 4px;
+    height: 40px;
+    padding: 2px;
+    text-align: center;
 }
 
 select {
-    background: pink;
     width: 268px;
+    border: 1px solid;
    padding: 5px;
    font-size: 16px;
    line-height: 1;
@@ -28,20 +46,52 @@ select {
    border-radius: 0;
    height: 34px;
    -webkit-appearance: none;
+   display: inline-block;
+   position: absolute;
+   left: 10px;
+   top: 4px;
+   /*
    position: absolute;
    top: 30px;
    right: 40px;
+   */
+}
+
+#title {
+  display: inline-block;
+  text-align: center;
+  /*height: 34px;*/
+  padding: 7px;
 }
 
 .element {
   width: 20px;
   /*height: 40px;*/
-  background-color: rgb(30,70,100);
   display: inline-block;
   margin: 2px;
   color: white;
   text-align: center;
   padding-top: 20px;
+  position: relative;
+  border-radius: 4px;
+  float: right;
+}
+
+.element:nth-child(odd) {
+  background-color: rgb(30,70,100);
+}
+
+.element:nth-child(even) {
+  background-color: rgb(40,70,80);
+}
+
+.element span {
+    position: absolute;
+    bottom: 6px;
+    right: 2px;
+    font-size: 11px;
+    color: white;
+    transform: rotate(90deg);
 }
 
 .fetched {
