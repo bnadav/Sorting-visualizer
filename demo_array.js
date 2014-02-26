@@ -41,6 +41,11 @@ DemoArray.prototype = {
     return (this.array[index]);
   },
 
+  set: function(index, value) {
+      this.array[index] = value;
+      this.presentor.set(index, value);
+  },
+
   move: function(from, to) {
      var previous_to = this.array[to];
      // If from is -1, use fetched value
@@ -48,6 +53,15 @@ DemoArray.prototype = {
      this.array[from] = null;
      this.presentor.moved(from, to, this.array[from], this.array[to]);
      return (previous_to);
+  },
+
+  swap: function(index_a, index_b) {
+      var value_a = this.at(index_a);
+      var value_b = this.at(index_b);
+      this.array[index_b] = value_a;
+      this.array[index_a] = value_b;
+      this.presentor.set(index_a, value_b);
+      this.presentor.set(index_b, value_a);
   },
 
   unfetch: function(to) {

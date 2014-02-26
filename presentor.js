@@ -14,7 +14,7 @@ Presentor.prototype = {
     if(this.queue.length > 0) {
       cmd = this.queue.shift();
       cmd.call(this);
-      setTimeout(function(){_this.run()}, 200);
+      setTimeout(function(){_this.run()}, 100);
     }
   },
 
@@ -24,11 +24,13 @@ Presentor.prototype = {
          var elem = $("#" + id);
          if (value === null) value = this.EMPTY_SIGN; // Null is no displayed
          if(elem.length > 0) {  // Element with the given id found - update it's text
-           elem.text(value);
+           elem.css({'height': value});
+           //elem.text(value);
          } else {  // Create the element
            jQuery('<div/>', {
              id: id,
-             text: value
+             height: value,
+             //text: value
            }).addClass("element").appendTo(this.wrapper);
          }
          });

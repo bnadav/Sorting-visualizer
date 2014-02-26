@@ -1,27 +1,35 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-  <title>Demo</title>
-  <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
-  <script src="presentor.js" type="text/javascript" charset="utf-8"></script>
-  <script src="demo_array.js" type="text/javascript" charset="utf-8"></script>
-  <script src="insertion_sort.js" type="text/javascript" charset="utf-8"></script>
-  <link rel="stylesheet" href="demo_array.css" type="text/css" media="screen" charset="utf-8"/>
- <script type="text/javascript" language="javascript" charset="utf-8">
-   $(function() {
-       var p = new Presentor(1);
-       var d = new DemoArray(10, p);
-       d.randomize(100);
-       insertion_sort(d);
-       p.run();
-     })
-</script>
-</head>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>Demo</title>
+        <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script src="presentor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="demo_array.js" type="text/javascript" charset="utf-8"></script>
+        <script src="merge_sort.js" type="text/javascript" charset="utf-8"></script>
+        <script src="insertion_sort.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="demo_array.css" type="text/css" media="screen" charset="utf-8"/>
+        <script type="text/javascript" language="javascript" charset="utf-8">
+            $(function() {
+                    var p = new Presentor(1);
+                    var d = new DemoArray(30, p);
+                    d.randomize(300);
+                    merge_sort(d);
+                    p.run();
+                    })
+                </script>
+            </head>
 
-  <body>
-    <div id="demo">
-    </div>
-  </body>
+            <body>
+                <div id="header"> </div>
+                <div id="demo"> </div>
+                <div id="selector">
+                    <select>
+                        <option value="Select Sort">Select Sort</option>
+                        <option value="insertion_sort">Insertion Sort</option>
+                        <option value="merge_sort">Merge Sort</option>
+                    </select>
+                </div>
+            </body>
 
-</html>
+        </html>

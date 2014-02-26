@@ -1,14 +1,39 @@
-#demo {
- margin: 200px auto;
+#demo, #header {
  width: 800px;
 }
 
+#demo {
+    margin: 180px auto;
+    height: 350px;
+}
+
+#header {
+    text-align: center;
+    font-size: 22px;
+    margin: 20px auto;
+}
+
+select {
+    background: pink;
+    width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   position: absolute;
+   top: 30px;
+   right: 40px;
+}
+
 .element {
-  width: 60px;
-  height: 40px;
+  width: 20px;
+  /*height: 40px;*/
   background-color: rgb(30,70,100);
   display: inline-block;
-  margin: 5px;
+  margin: 2px;
   color: white;
   text-align: center;
   padding-top: 20px;
