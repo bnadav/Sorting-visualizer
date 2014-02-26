@@ -8,6 +8,7 @@
         <script src="demo_array.js" type="text/javascript" charset="utf-8"></script>
         <script src="merge_sort.js" type="text/javascript" charset="utf-8"></script>
         <script src="insertion_sort.js" type="text/javascript" charset="utf-8"></script>
+        <script src="quick_sort.js" type="text/javascript" charset="utf-8"></script>
         <link rel="stylesheet" href="demo_array.css" type="text/css" media="screen" charset="utf-8"/>
         <script type="text/javascript" language="javascript" charset="utf-8">
             $(function() {
@@ -15,12 +16,15 @@
                     var _this = this;
                     $("select").change(function() {
                         var f;
-                        var d = new DemoArray(30, p.clear());
-                        d.randomize(300);
+                        var d = new DemoArray(32, p.clear());
+                        d.randomize(350);
                         switch (this.value)
                         {
                           case "insertion_sort":
                             f = insertion_sort;
+                             break;
+                          case "quick_sort":
+                            f = quick_sort;
                              break;
                           case "merge_sort":
                             f = merge_sort;
@@ -44,6 +48,7 @@
                         <option value="Select Sort" selected>Select Sort</option>
                         <option value="insertion_sort">Insertion Sort</option>
                         <option value="merge_sort">Merge Sort</option>
+                        <option value="quick_sort">Quick Sort</option>
                     </select>
                     <span id="title"> Sort Type </span>
                 </div>
