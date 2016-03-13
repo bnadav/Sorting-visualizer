@@ -9,6 +9,7 @@
         <script src="merge_sort.js" type="text/javascript" charset="utf-8"></script>
         <script src="insertion_sort.js" type="text/javascript" charset="utf-8"></script>
         <script src="quick_sort.js" type="text/javascript" charset="utf-8"></script>
+        <script src="heap_sort.js" type="text/javascript" charset="utf-8"></script>
         <link rel="stylesheet" href="demo_array.css" type="text/css" media="screen" charset="utf-8"/>
         <script type="text/javascript" language="javascript" charset="utf-8">
             $(function() {
@@ -29,6 +30,9 @@
                           case "merge_sort":
                             f = merge_sort;
                             break;
+                          case "heap_sort":
+                            f = heap_sort;
+                            break;
                           default:
                             f = undefined;
                         }
@@ -48,6 +52,7 @@
                         <option value="Select Sort" selected>Select Sort</option>
                         <option value="insertion_sort">Insertion Sort</option>
                         <option value="merge_sort">Merge Sort</option>
+                        <option value="heap_sort">Heap Sort</option>
                         <option value="quick_sort">Quick Sort</option>
                     </select>
                     <span id="title"> Sort Type </span>
